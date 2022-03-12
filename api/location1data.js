@@ -1,4 +1,4 @@
-window.metaLocationData={
+window.metaLocationData1={
     "data": [
         {
         	"id":"beijing",
