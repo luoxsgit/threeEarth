@@ -147,7 +147,7 @@ function Planet(e, t, a, i) {
 	}
 	function c(t) {
 		var a, i = t.years[PlanetData.YEAR_ID];
-		a = "brief" === i.type ? i.brief_id: langNewUrl + "locations/" + PlanetData.YEAR_ID + "/" + t.location_id,
+		a = "brief" === i.type ? i.brief_id: langUrl + "locations/" + PlanetData.YEAR_ID + "/" + t.location_id,
 		h.state = h.ANIMATED,
 		e.controls.detach(),
 		f.style.cursor = "default",
@@ -1953,7 +1953,7 @@ PlanetContour = function(e) {
 };
 var PlanetData = function() {
 	var e = this;
-	this.textures_path = window.langNewUrl+"assets/earth/",
+	this.textures_path = window.langUrl+"assets/earth/",
 	this.YEAR = null,
 	this.YEAR_ID = null,
 	this.years={},
