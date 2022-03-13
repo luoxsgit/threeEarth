@@ -1496,7 +1496,7 @@ function(e) {
 	function t() {
 		var e = $("div.w-code").width()?(!($("div.w-code").width() > 1e3) || window.earthDemo && window.earthDemo.running ? $("div.w-code").width(): $("div.w-code").width()):(!(window.innerWidth > 1e3) || window.earthDemo && window.earthDemo.running ? window.innerWidth: window.innerWidth),
         t = $("div.w-code").width()?$("div.w-code").height():window.innerHeight;
-        window.earthDemo && window.earthDemo.createMode && (e = !(document.documentElement.offsetWidth > 1e3) || window.earthDemo && window.earthDemo.running ? document.documentElement.offsetWidth: document.documentElement.offsetWidth, t = document.documentElement.offsetHeight),
+        $("div.w-code").width()?(window.earthDemo && window.earthDemo.createMode && (e = !($("div.w-code").width() > 1e3) || window.earthDemo && window.earthDemo.running ? $("div.w-code").width(): $("div.w-code").width(), t = $("div.w-code").height())):(window.earthDemo && window.earthDemo.createMode && (e = !(document.documentElement.offsetWidth > 1e3) || window.earthDemo && window.earthDemo.running ? document.documentElement.offsetWidth: document.documentElement.offsetWidth, t = document.documentElement.offsetHeight)),
         window.canvasWidth = e,
 		l.domElement.originalSize = {
 			width: e,
@@ -1534,7 +1534,7 @@ function(e) {
 	l.setPixelRatio(o);
 	var d = l.domElement;
 	r.append(d);
-	var u = n.camera = $("div.w-code").width()?new THREE.PerspectiveCamera(60, window.earthDemo && window.earthDemo.createMode ? document.documentElement.offsetWidth / document.documentElement.offsetHeight: $("div.w-code").width() / $("div.w-code").height(), .1, 700):new THREE.PerspectiveCamera(60, window.earthDemo && window.earthDemo.createMode ? document.documentElement.offsetWidth / document.documentElement.offsetHeight: window.innerWidth / window.innerHeight, .1, 700);
+	var u = n.camera = $("div.w-code").width()?new THREE.PerspectiveCamera(60, window.earthDemo && window.earthDemo.createMode ? $("div.w-code").width() / $("div.w-code").height(): $("div.w-code").width() / $("div.w-code").height(), .1, 700):new THREE.PerspectiveCamera(60, window.earthDemo && window.earthDemo.createMode ? document.documentElement.offsetWidth / document.documentElement.offsetHeight: window.innerWidth / window.innerHeight, .1, 700);
 	u.position.set( - 16, 11, 0),
 	u.lookAt(new THREE.Vector3(0, 0, 0));
 	var c;
