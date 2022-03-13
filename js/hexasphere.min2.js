@@ -118,7 +118,7 @@ function Planet(e, t, a, i) {
 		t ? u(t, !0) : h.deactivateHexagon()
 	}
 	function u(t, a) {
-		if (!window.earthDemo || !window.earthDemo.running) {
+		if (t.years[PlanetData.YEAR_ID] && (!window.earthDemo || !window.earthDemo.running)) {
 			h.deactivateHexagon(),
 			e.controls.autoRotate = !1,
 			h.location_current = t,
@@ -141,13 +141,13 @@ function Planet(e, t, a, i) {
 			}
 			B.position.copy(t.position),
 			e.controls.autoRotate = !1,
-			t.light.visible = !1,
+			t.light.visible = !1
 			h.commentToggle(!1)
 		}
 	}
 	function c(t) {
 		var a, i = t.years[PlanetData.YEAR_ID];
-		a = "brief" === i.type ? langUrl + i.brief_id: langUrl + "locations/" + PlanetData.YEAR_ID + "/" + t.location_id,
+		a = "brief" === i.type ? i.brief_id: langNewUrl + "locations/" + PlanetData.YEAR_ID + "/" + t.location_id,
 		h.state = h.ANIMATED,
 		e.controls.detach(),
 		f.style.cursor = "default",
@@ -786,8 +786,8 @@ function PlanetPointed(e) {
 function PlanetCommentPopup(e) {
 	var t, a = !1,
 	i = window.PLANET,
-	n = $("<div class='planet-comment-line'>").appendTo(e).hide(),
-	r = $("<div class='planet-comment'>").appendTo(e).hide(),
+	n = $("<div class='planet-comment-line' >").appendTo(e).hide(),
+	r = $("<div class='planet-comment' >").appendTo(e).hide(),
 	o = $("<div class='planet-comment-text'>").appendTo(r),
 	s = i.main.camera,
 	l = new THREE.Object3D;
@@ -800,7 +800,7 @@ function PlanetCommentPopup(e) {
 			o.attr("href", e.id),
 			o.on("click",
 			function() {
-				location.href = $(this).attr("href")
+				window.open($(this).attr("href"));
 			}),
 			r.stop().show(200),
 			a = !0,
@@ -1945,7 +1945,7 @@ PlanetContour = function(e) {
 };
 var PlanetData = function() {
 	var e = this;
-	this.textures_path = window.langUrl+"assets/earth/",
+	this.textures_path = window.langNewUrl+"assets/earth/",
 	this.YEAR = null,
 	this.YEAR_ID = null,
 	this.years={},
@@ -2027,11 +2027,7 @@ var PlanetData = function() {
 		return 0
 	},
 	this.hasLocationAnyBriefTexts = function(t, a) {
-		if(t.years[e.YEAR_ID]==undefined){
-			console.log(t);
-			e.YEAR_ID=window.YEAR_ID
-		}
-		if (!0 === a) return t.years[e.YEAR_ID].briefs_text;
+		if (!0 === a) return t.years[e.YEAR_ID]?t.years[e.YEAR_ID].briefs_text:"";
 		if (void 0 !== a) return t.years[a].briefs_text;
 		for (var i in t.years) {
 			if (t.years[i].briefs) return t.years[i].briefs_text
@@ -2039,10 +2035,10 @@ var PlanetData = function() {
 		return 0
 	},
 	this.getWorkList = function(t, a) {
-		return 1 == a ? t.years[e.YEAR_ID].works_list: void 0 !== a ? t.years[a].works_list: 0
+		return 1 == a ?( t.years[e.YEAR_ID]?t.years[e.YEAR_ID].works_list:""): void 0 !== a ? t.years[a].works_list: 0
 	},
 	this.getMoreText = function(t, a) {
-		return 1 == a ? t.years[e.YEAR_ID].more_btn: void 0 !== a ? t.years[a].more_btn: 0
+		return 1 == a ? (t.years[e.YEAR_ID]?t.years[e.YEAR_ID].more_btn:""): void 0 !== a ? t.years[a].more_btn: 0
 	},
 	this
 } ();
