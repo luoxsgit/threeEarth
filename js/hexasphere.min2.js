@@ -257,7 +257,7 @@ function Planet(e, t, a, i) {
 			var n = B.getWorldPosition(),
 			r = n.clone().project(m);
 			r.x = (r.x + 1) / 2 * window.canvasWidth,
-			$("div.w-code").width()?r.y = -(r.y - 1) / 2 * (window.earthDemo && window.earthDemo.createMode ? document.documentElement.offsetHeight: $("div.w-code").height()):r.y = -(r.y - 1) / 2 * (window.earthDemo && window.earthDemo.createMode ? document.documentElement.offsetHeight: window.innerHeight),
+			$("div.w-code").width()?(r.y = -(r.y - 1) / 2 * (window.earthDemo && window.earthDemo.createMode ? document.documentElement.offsetHeight: $("div.w-code").height())):(r.y = -(r.y - 1) / 2 * (window.earthDemo && window.earthDemo.createMode ? document.documentElement.offsetHeight: window.innerHeight)),
 			z.style.transform = "translate(" + r.x + "px, " + r.y + "px)",
 			this.isInFrontOfPlanet(B.position) || h.deactivateHexagon()
 			
@@ -839,10 +839,10 @@ function PlanetCommentPopup(e) {
 			var e = l.getWorldPosition(),
 			t = e.clone().project(s);
 			t.x = (t.x + 1) / 2 * window.canvasWidth,
-			$("div.w-code").width()?t.y = -(t.y - 1) / 2 * $("div.w-code").height():t.y = -(t.y - 1) / 2 * window.innerHeight;
+			$("div.w-code").width()?(t.y = -(t.y - 1) / 2 * $("div.w-code").height()):(t.y = -(t.y - 1) / 2 * window.innerHeight);
 			var o = e.clone().multiplyScalar(1.1).project(s);
 			o.x = (o.x + 1) / 2 * window.canvasWidth,
-			$("div.w-code").width()?o.y = -(o.y - 1) / 2 * $("div.w-code").height():o.y = -(o.y - 1) / 2 * window.innerHeight,
+			$("div.w-code").width()?(o.y = -(o.y - 1) / 2 * $("div.w-code").height()):(o.y = -(o.y - 1) / 2 * window.innerHeight),
 			r.css({
 				transform: "translate(" + o.x + "px, " + o.y + "px)",
 				height: "auto",
@@ -1494,7 +1494,7 @@ THREE.XRayMaterial = function(e) {
 },
 function(e) {
 	function t() {
-		var e = $("div.w-code").width()?!($("div.w-code").width() > 1e3) || window.earthDemo && window.earthDemo.running ? $("div.w-code").width(): $("div.w-code").width():!(window.innerWidth > 1e3) || window.earthDemo && window.earthDemo.running ? window.innerWidth: window.innerWidth,
+		var e = $("div.w-code").width()?(!($("div.w-code").width() > 1e3) || window.earthDemo && window.earthDemo.running ? $("div.w-code").width(): $("div.w-code").width()):(!(window.innerWidth > 1e3) || window.earthDemo && window.earthDemo.running ? window.innerWidth: window.innerWidth),
         t = $("div.w-code").width()?$("div.w-code").height():window.innerHeight;
         window.earthDemo && window.earthDemo.createMode && (e = !(document.documentElement.offsetWidth > 1e3) || window.earthDemo && window.earthDemo.running ? document.documentElement.offsetWidth: document.documentElement.offsetWidth, t = document.documentElement.offsetHeight),
         window.canvasWidth = e,
@@ -2243,8 +2243,8 @@ Utils.getEventCursorPosition = function(e, t) {
 },
 Utils.getEventCursorPositionOrientation = function(e, t) {
 	Util.getEventCursorPosition(e, t),
-	$("div.w-code").width()?t.x = t.x / $("div.w-code").width() * 2 - 1:t.x = t.x / window.innerWidth * 2 - 1,
-	$("div.w-code").width()?t.y = -t.y / $("div.w-code").height() * 2 + 1:t.y = -t.y / window.innerHeight * 2 + 1
+	$("div.w-code").width()?(t.x = t.x / $("div.w-code").width() * 2 - 1):(t.x = t.x / window.innerWidth * 2 - 1),
+	$("div.w-code").width()?(t.y = -t.y / $("div.w-code").height() * 2 + 1):(t.y = -t.y / window.innerHeight * 2 + 1)
 },
 Utils.get2dPosition = function(e, t, a) {
 	var i = e.clone().project(t);
