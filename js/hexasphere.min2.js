@@ -823,6 +823,13 @@ function PlanetCommentPopup(e) {
 	var d;
 	return this.showRandom = function() {
 		var e, t = i.planetLocations.current_locations;
+		var curData=[];
+		for(var ci=0;ci<t.length;ci++){
+			if(t[ci].years[PlanetData.YEAR_ID]){
+				curData.push(t[ci]);
+			}
+		}
+		t=curData;
 		if (clearTimeout(d), !t) return void(d = setTimeout(this.showRandom, 100));
 		for (var a = 0; t.length > 0 && a < 10 && (e = t[~~ (Math.random() * t.length)], !(e.position && PlanetData.hasLocationAnyBriefs(e, !0) && i.isInFrontOfPlanet(e.position))); a++) e = null;
 		if (!e) return void(d = setTimeout(this.showRandom, 200));
@@ -833,6 +840,7 @@ function PlanetCommentPopup(e) {
 				show(a, e.position, 3e3, showRandom)
 			} else d = setTimeout(this.showRandom, 100)
 		})
+		
 	},
 	this.update = function() {
 		if (a) {
