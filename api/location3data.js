@@ -1,3 +1,6 @@
+/**
+知名景点
+*/
 window.metaLocationData3={
     "data": [
         {

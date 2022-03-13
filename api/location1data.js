@@ -1,3 +1,6 @@
+/**
+国际竞赛
+*/
 window.metaLocationData1={
     "data": [
         {
@@ -8,7 +11,9 @@ window.metaLocationData1={
             "type": "省级",
             "link": "http://www.baidu.com",
             "planName": "《北京市国土空间总体规划2019-2035年》",
-            "level": "发布稿"
+            "level": "发布稿",
+            "flagImg":"https://cdn.jsdelivr.net/gh/luoxsgit/threeEarth@v1.1.8/assets/earth/bj.jfif",
+            "preview":"https://cdn.jsdelivr.net/gh/luoxsgit/threeEarth@v1.1.8/assets/earth/bj.jfif"
         },
         {
         	"id":"shanghai",
@@ -18,7 +23,9 @@ window.metaLocationData1={
             "type": "省级",
             "link": "http://www.art-x.cn/newsinfo/1155628.html",
             "planName": "《上海市城市总体规划2017-2035年》",
-            "level": "发布稿"
+            "level": "发布稿",
+            "flagImg":"https://cdn.jsdelivr.net/gh/luoxsgit/threeEarth@v1.1.8/assets/earth/sh.jfif",
+            "preview":"https://cdn.jsdelivr.net/gh/luoxsgit/threeEarth@v1.1.8/assets/earth/sh.jfif"
         },
         {
         	"id":"chongqing",

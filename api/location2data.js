@@ -1,5 +1,20 @@
+/**
+历史建筑
+*/
 window.metaLocationData2={
     "data": [
+		{
+        	"id":"beijing",
+            "works": true,
+            "name": "北京",
+            "value": 200,
+            "type": "省级",
+            "link": "http://www.baidu.com",
+            "planName": "《北京市历史建筑国土空间总体规划2019-2035年》",
+            "level": "发布稿",
+            "flagImg":"https://cdn.jsdelivr.net/gh/luoxsgit/threeEarth@v1.1.8/assets/earth/bj.jfif",
+            "preview":"https://cdn.jsdelivr.net/gh/luoxsgit/threeEarth@v1.1.8/assets/earth/bj.jfif"
+        },
         {
         	"id":"jingxian",
             "works": false,
