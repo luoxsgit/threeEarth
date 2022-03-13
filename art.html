@@ -1,0 +1,99 @@
+<html style="height:100%" data-desktop="1" data-mobile="2" data-landscape="3">
+<meta charset="utf-8">
+
+<script src="https://cdn.jsdelivr.net/gh/luoxsgit/threeEarth@v1.2.0/api/location1data.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/luoxsgit/threeEarth@v1.2.0/api/location2data.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/luoxsgit/threeEarth@v1.2.0/api/location3data.js"></script>
+
+<link rel="preload" href="https://cdn.jsdelivr.net/gh/luoxsgit/threeEarth@v1.2.0/css/Kaspersky.min.css" >
+<link rel="preload" href="https://cdn.jsdelivr.net/gh/luoxsgit/threeEarth@v1.2.0/css/libs.css" >
+<link rel="preload" href="https://cdn.jsdelivr.net/gh/luoxsgit/threeEarth@v1.2.0/css/app.css" >
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/luoxsgit/threeEarth@v1.2.0/css/Kaspersky.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/luoxsgit/threeEarth@v1.2.0/css/libs.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/luoxsgit/threeEarth@v1.2.0/css/app.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/gh/luoxsgit/threeEarth@v1.2.0/css/panorama.css" >
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/luoxsgit/threeEarth@v1.2.0/css/panorama.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/gh/luoxsgit/threeEarth@v1.2.0/css/feed.css" >
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/luoxsgit/threeEarth@v1.2.0/css/feed.css">
+
+<script defer  src="https://cdn.jsdelivr.net/gh/luoxsgit/threeEarth@v1.2.0/js/assets.min.js"></script>
+<script defer  src="https://cdn.jsdelivr.net/gh/luoxsgit/threeEarth@v1.2.0/js/three.min.js"></script>
+<script defer  src="https://cdn.jsdelivr.net/gh/luoxsgit/threeEarth@v1.2.0/js/panorama.min.js"></script>
+<script>
+    //window.myProTypes=["国际竞赛","历史建筑","知名景点"];
+    window.myProTypes=[2021,2022,2023];
+    window.myProTypesName=["国际竞赛","历史建筑","知名景点"];
+    //window.proTypesLink=["","",""];
+    $("#smv_Area0").css("z-index","99999");
+</script>
+<script>
+   var FileAPI = {
+       debug: false,
+       staticPath: '/assets/fileapi'
+   };
+
+   var kaspersky = window.kaspersky || {},
+       peppers = {};
+   window.langUrl = 'https://cdn.jsdelivr.net/gh/luoxsgit/threeEarth@v1.2.0/';
+   window.langNewUrl = 'https://cdn.jsdelivr.net/gh/luoxsgit/threeEarth@v1.2.0/';
+   window.authUser = 0;
+   window.userLang = 'en';
+   
+</script>
+<script defer src="https://cdn.jsdelivr.net/gh/luoxsgit/threeEarth@v1.2.0/js/Kaspersky.min2.js"></script>
+<script defer src="https://cdn.jsdelivr.net/gh/luoxsgit/threeEarth@v1.2.0/js/hexasphere.min2.js"></script>
+<script defer src="https://cdn.jsdelivr.net/gh/luoxsgit/threeEarth@v1.2.0/js/switchToArtwork.js"></script>
+<body style="height: 100%;width: 100%;margin: 0">
+	<!--  div class="k-menu-item k-menu__logo clearfix"><a href="http://www.pm25.in" class="logo"></a></div -->
+	<div class="main-container"></div>
+<script id="earth-popup" type="text/x-handlebars-template">
+    <div class="earth-popup">
+        {{#each this}}
+            <div class="earth-popup__item  earth-popup__item_{{@index}}">
+                <div class="earth-popup__item-shadow"></div>
+                <div class="earth-popup__preview-hexagon">
+                    <div class="earth-popup__preview">
+                        <div class="hexagon__image" style="background-image: url('{{preview}}')"></div>
+                    </div>
+                </div>
+                <div class="earth-popup__content-container">
+                    <div class="earth-popup__content-top">
+                        <div class="earth-popup__name-contry">{{name}}</div>
+                        <div class="earth-popup__flag">
+                            <img class="earth-popup__flag-img" src="{{country.flag}}" alt="">
+                        </div>
+                    </div>
+                    <div class="earth-popup__content-count">
+                        {{briefs_text}}
+                    </div>
+                    <div class="earth-popup__content-list">
+                        {{#each works_list}}
+                            <a class="earth-popup__content-link" href="{{link}}">
+                                <span class="earth-popup__content-text">{{name}}</span>
+                            </a>
+                        {{/each}}
+                    </div>
+                </div>
+            </div>
+        {{/each}}
+    </div> 
+</script>
+<script id="earth-mobile-tip" type="text/x-handlebars-template">
+    {{#each this}}
+    <div class="mobile-tip">
+        <div class="mobile-tip__top">
+            <div class="mobile-tip__name">{{name}}</div>
+            <div class="mobile-tip__flag">
+                <img class="mobile-tip__flag-img" src="{{country.flag}}" alt="">
+            </div>
+        </div>
+        <div class="mobile-tip__content-count">{{more_one works_list briefs_text ""}}</div>
+        <div class="mobile-tip__btn">
+            <span>{{more}}</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+    <path fill-rule="evenodd" d="M9.003 8L6.35 5.349A1.2 1.2 0 0 1 8.05 3.65l3.5 3.5a1.2 1.2 0 0 1 0 1.698l-3.5 3.5A1.2 1.2 0 1 1 6.35 10.65L9.003 8z"/>
+</svg>        </div>
+    </div>
+    {{/each}}
+</script>   
+<div class="timeline-new"></div>
